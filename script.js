@@ -13,6 +13,9 @@ function validar() {
     telefono = document.getElementById("telefono");
 
 
+    const pattern = new RegExp('^[A-Z]+$', 'i');
+
+
 
 
     console.log(nombre.value);
@@ -44,10 +47,22 @@ function validar() {
         alert("el nombre es muy largo");
         return false;
     }
+    else if (!pattern.test(nombre.value)) {
+
+        alert("ingrese solo letras para su nombre");
+        return false
+    }
     else if (apellidos.value.length > 80) {
 
         alert("los apellidos son muy largos");
         return false;
+    }
+
+
+    else if (!pattern.test(apellidos.value)) {
+
+        alert("ingrese solo letras para su apellido");
+        return false
     }
 
     else if (correo.value.length > 100) {
@@ -75,7 +90,7 @@ function validar() {
     }
     else {
 
-        alert("bienvenido " + nombre.value + " " + apellidos.value + " gracias por registrarte");
+        alert("Bienvenido " + nombre.value + " " + apellidos.value + " Gracias por Registrarte");
     }
 }
 
